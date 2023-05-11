@@ -3,6 +3,7 @@ package com.example.eventbox.service.Impl;
 import com.example.eventbox.model.entity.Customer;
 import com.example.eventbox.repository.CustomerRepository;
 import com.example.eventbox.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,6 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
+
 
     @Override
     public Optional<Customer> findByEmail(String email) {

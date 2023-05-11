@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(request -> request.requestMatchers("/api/login").permitAll()
+                .authorizeHttpRequests(request -> request.requestMatchers("/api/login", "/app/events/**","/api/events").permitAll()
                         .anyRequest().authenticated()
                 ).httpBasic().and().apply(new JwtFilterConfiguration(tokenProvider));
         return httpSecurity.build();

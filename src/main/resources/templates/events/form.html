@@ -18,7 +18,7 @@
             </div>
 
             <div class="table-responsive form-content">
-                <form method="post" th:action="${eventFromDto.getId() == null ? '/events/create' : '/events/update/' + eventFromDto.getId()}" th:object="${eventFromDto}">
+                <form method="post" th:action="${eventFromDto.getId() == null  ? '/events/create' : '/events/update/' + eventFromDto.getId()}" th:object="${eventFromDto}">
                     <div class="mb-3">
                         <label for="name-field" class="form-label required">Name</label>
                         <input id="name-field" type="text" class="form-control" th:field="*{name}">
