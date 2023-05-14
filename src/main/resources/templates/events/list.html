@@ -53,12 +53,18 @@
                     </tr>
                 </table>
                 <nav th:if="${eventPage.getTotalPages() > 1}" aria-label="Page navigation example">
-                    <ul class="pagination" >
-                        <li id="previous-button" class="page-item"><a class="page-link" th:if="${eventPage.hasPrevious()}" th:href="@{'/events?page=' + ${eventPage.previousPageable().pageNumber + 1}}">Previous</a></li>
-                        <li id="page-item" th:each="page : ${#numbers.sequence(1, eventPage.getTotalPages())}">
-                            <a class="page-link" th:href="@{'/events?page=' +${page}}" th:text="${page}" th:classappend="${page == eventPage.getNumber() + 1 ? 'active' : ''}"></a>
+                    <ul class="pagination">
+                        <li id="previous-button" class="page-item"><a class="page-link"
+                                                                      th:if="${eventPage.hasPrevious()}"
+                                                                      th:href="@{'/events?page=' + ${eventPage.previousPageable().pageNumber + 1}}">Previous</a>
                         </li>
-                        <li id="next-button" class="page-item"><a class="page-link" th:if="${eventPage.hasNext()}" th:href="@{'/events?page=' + ${eventPage.nextPageable().pageNumber + 1}}">Next</a></li>
+                        <li id="page-item" th:each="page : ${#numbers.sequence(1, eventPage.getTotalPages())}">
+                            <a class="page-link" th:href="@{'/events?page=' +${page}}" th:text="${page}"
+                               th:classappend="${page == eventPage.getNumber() + 1 ? 'active' : ''}"></a>
+                        </li>
+                        <li id="next-button" class="page-item"><a class="page-link" th:if="${eventPage.hasNext()}"
+                                                                  th:href="@{'/events?page=' + ${eventPage.nextPageable().pageNumber + 1}}">Next</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
